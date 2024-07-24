@@ -1,0 +1,55 @@
+from tkinter import *
+from PIL import ImageTk,Image
+from tkinter import messagebox
+
+def handle_login():
+    email=email_input.get()
+    password=password_input.get()
+    
+    if email=="21aiml15@gweca.ac.in" and password=="1234":
+        messagebox.showinfo("yayy","Login Successful")
+    else:
+        messagebox.showerror("Error","Login Failed")
+root=Tk()
+
+root.title("Login Form")
+root.iconbitmap("login.ico")
+
+
+root.maxsize(400,400)
+ 
+root.geometry("350x500")
+
+root.configure(background="Violet")
+img=Image.open("ig.jpeg")
+resized_img=img.resize((90,90))
+
+img=ImageTk.PhotoImage(resized_img)
+
+img_label=Label(root,image=img)
+img_label.pack(pady=(10,10))
+
+text_label=Label(root,text="Instagram",fg="Black",bg="Violet")
+text_label.pack()
+text_label.configure(font=("verdana",13))
+
+email_label=Label(root,text="E-mail/User-ID",fg="black",bg="Violet")
+email_label.pack(pady=(20,5))
+email_label.configure(font=("verdana",11))
+
+email_input=Entry(root,width=50)
+email_input.pack(ipady=4,pady=(1,15))
+
+password_label=Label(root,text="Enter your password",fg="black",bg="Violet")
+password_label.pack(pady=(20,5))
+password_label.configure(font=("verdana",11))
+
+password_input=Entry(root,width=50)
+password_input.pack(ipady=4,pady=(1,15))
+
+login_btn=Button(root,text="Login Here",fg="black",bg="violet",command=handle_login)
+login_btn.pack(pady=(10,20))
+login_btn.configure(font=("verdana",9))
+
+
+root.mainloop()
